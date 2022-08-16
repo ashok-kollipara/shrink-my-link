@@ -1,0 +1,23 @@
+
+"""
+
+1. Register on your favourite service 
+2. Obtain your personal API TOKEN
+3. Edit below ENVIRONMENTAL variables with respective values mentioned in "UPPERCASE"
+4. Move this file to your desired folder (preferably ~/.config or $XDG_CONFIG_HOME)
+5. Source the file in your .bashrc or .zshrc to make them available
+6. DO NOT ADD THIS FILE to your public version control (add file name to .gitignore)
+
+"""
+
+# Tiny URL details
+export TINYURL_ROUTE="RESPECTIVE_API_ENDPOINT_HERE"
+export TINYURL_TOKEN="YOUR_TOKEN_HERE"
+
+# Bitly details
+export BITLY_ROUTE="RESPECTIVE_API_ENDPOINT_HERE"
+export BITLY_TOKEN="YOUR_TOKEN_HERE"
+
+# Cuttly details
+export CUTTLY_ROUTE="RESPECTIVE_API_ENDPOINT_HERE"
+export CUTTLY_TOKEN="YOUR_TOKEN_HERE"

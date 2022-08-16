@@ -1,16 +1,20 @@
 #!/usr/bin/env python
 
-import constants
 import requests
 import json
+import os
 
 def tinyurl():
 
-    headers = constants.HEADERS 
-    headers['Authorization'] = f'Bearer {constants.TINYURL_TOKEN}'
+    headers = {
+            'user-agent' : 'Mozilla/5.0 (X11; Linux x86_64; rv:103.0) Gecko/20100101 Firefox/103.0',
+            'accept' : 'application/json',
+            'Content-Type' : 'application/json'
+            }
 
-    url = constants.TINYURL_ROUTE
-    key = constants.TINYURL_TOKEN
+    headers['Authorization'] = f"Bearer {os.getenv('TINYURL_TOKEN')}"
+
+    url = os.getenv('TINYURL_ROUTE')
 
     long_url = input('Enter your URL : ')
     custom_alias = input('Enter your alias for URL [5 - 20] chars long: ')

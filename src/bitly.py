@@ -1,16 +1,21 @@
 #!/usr/bin/env python
 
-import constants
 import requests
 import json
+import os
 
 def bitly():
 
-    headers = constants.HEADERS 
-    headers['Authorization'] = f'Bearer {constants.BITLY_TOKEN}'
+    headers = {
+            'user-agent' : 'Mozilla/5.0 (X11; Linux x86_64; rv:103.0) Gecko/20100101 Firefox/103.0',
+            'accept' : 'application/json',
+            'Content-Type' : 'application/json'
+            }
 
-    url = constants.BITLY_ROUTE
-    key = constants.BITLY_TOKEN
+    headers['Authorization'] = f"Bearer {os.getenv('BITLY_TOKEN')}"
+
+
+    url = os.getenv('BITLY_ROUTE')
 
     long_url = input('Enter your URL : ')
     custom_alias = input('Enter your alias for URL [5 - 20] chars long: ')
