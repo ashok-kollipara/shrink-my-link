@@ -12,6 +12,7 @@ An attempt at python command line personal url shortening tool from multiple ser
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Examples](#examples)
+- [Providers](#compatible-providers)
 
 ## Dependencies
 
@@ -45,20 +46,26 @@ cp shrink ~/.local/bin/
 
 **Note :** 
 
-It is assumed that ~/.local/bin is already added to $PATH. IF not add it to PATH and update .bashrc or .zshrc
+It is assumed that `~/.local/bin` is already added to $PATH. If not add it to PATH and update via .bashrc or .zshrc
 
 **WINDOWS :** 
 
-Read this on how to do : [ADD FILE / FOLDER to PATH](https://answers.microsoft.com/en-us/windows/forum/all/enviromnent-variables-adding-to-system-path/902feff1-cac2-49e3-9021-7fa4bedf4347)
+- Read this on how to : [Add file / folder to PATH](https://answers.microsoft.com/en-us/windows/forum/all/enviromnent-variables-adding-to-system-path/902feff1-cac2-49e3-9021-7fa4bedf4347)
+
+- Please add an alias `shrink` to `python \path\to\folder\shrink.py` for console to use the tool.
+
+ - [Add alias in Windows Command Prompt](https://stackoverflow.com/questions/20530996/aliases-in-windows-command-prompt)
+ - [Windows console aliases](https://docs.microsoft.com/en-us/windows/console/console-aliases)
+
 
 ## Configuration
 
 #### UNIX / LINUX
 
 
-1. Read and Fill the `templates/api_keys_template` file with necessary details
+1. Copy the `templates/api_keys_template` file to your desired folder and Read and Fill it with necessary details
 
-2. Move the file to your desired folder
+2. Rename the file after placing in your desired folder
 ```
 mv templates/api_keys_template ~/.config/api_keys
 ```
@@ -85,6 +92,7 @@ Please add the variables for persistent setup and also check your IDE environmen
 
 ## Usage
 
+#### Unix / Linux
 ```
 usage: shrink [-h] [-v] [-a ALIAS] [-q] URL
 
@@ -100,8 +108,9 @@ options:
                         try for custom back-half e.g bit.ly/{ALIAS}
   -q, --quick           quickly get single link, useful to chain commands in Linux
 
-```
+```  
 
+**ALTERNATIVELY,**  there is a choice to use the application standalone with any of the providers from the `src/` folder
 ## Examples
 
 - **Simple copy avaiable with middle-click mouse**
@@ -115,18 +124,23 @@ shrink -q https://example.com | xclip -r && notify-send "Short URL" "Ready to pa
 
 - **Pick and Paste : Like a Boss**  
   
-  With fzf :
+  With [fzf](https://github.com/junegunn/fzf) :
 ```
 shrink https://example.com/ -a test | fzf | xclip -r && notify-send "Short URL" "Ready to paste"
-```
-  Or with dmenu :
+```  
+  Or with [dmenu](https://tools.suckless.org/dmenu/) :
 ```
 shrink https://example.com/ -a test | dmenu | xclip -r && notify-send "Short URL" "Ready to paste" 
 ```
 
 ## Compatible providers
 
+Based on the free tier options with API provided for personal use from these URL shortening service providers. (as of 17-Aug-2022)
+
+**Thank You :**
+
 - [cutt.ly](https://cutt.ly)
 - [tinyurl.com](https://tinyurl.com)
 - [bitly.com](https://bitly.com)
+
 
